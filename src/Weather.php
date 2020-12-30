@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the leo0315/weather.
+ *
+ * (c) leo0315 <lizhihang0001@126.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace Leo0315\Weather;
 
 use GuzzleHttp\Client;
@@ -19,6 +28,7 @@ class Weather
 
     /**
      * Weather constructor.
+     *
      * @param string $key
      */
     public function __construct($key)
@@ -34,20 +44,19 @@ class Weather
         return new Client($this->guzzleOptions);
     }
 
-    /**
-     * @param array $options
-     */
     public function setGuzzleOptions(array $options)
     {
         $this->guzzleOptions = $options;
     }
 
-
     /**
-     * 获取实时天气
+     * 获取实时天气.
+     *
      * @param $city
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException|\GuzzleHttp\Exception\GuzzleException
      */
@@ -57,10 +66,13 @@ class Weather
     }
 
     /**
-     * 获取天气预报
+     * 获取天气预报.
+     *
      * @param $city
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException|\GuzzleHttp\Exception\GuzzleException
      */
@@ -73,7 +85,9 @@ class Weather
      * @param $city
      * @param string $type
      * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      * @throws \GuzzleHttp\Exception\GuzzleException
@@ -94,9 +108,9 @@ class Weather
         $type = \strtolower($type);
         // 2. 封装 query 参数，并对空值进行过滤。
         $query = array_filter([
-            'key'        => $this->key,
-            'city'       => $city,
-            'output'     => $format,
+            'key' => $this->key,
+            'city' => $city,
+            'output' => $format,
             'extensions' => $type,
         ]);
 
