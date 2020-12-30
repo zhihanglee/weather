@@ -3,7 +3,8 @@
 # Weather
 
 基于  [高德开放平台](https://lbs.amap.com/dev/id/newuser) 的 PHP 天气信息组件。
-
+## 需求
+php >=7.2.5
 ## 安装
 
 ```sh
