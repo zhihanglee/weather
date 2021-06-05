@@ -29,6 +29,7 @@ class Weather
 
     /**
      * Weather constructor.
+     *
      * @param string $key
      */
     public function __construct($key)
@@ -36,9 +37,6 @@ class Weather
         $this->key = $key;
     }
 
-    /**
-     * @return Client
-     */
     public function getHttpClient(): Client
     {
         return new Client($this->guzzleOptions);
@@ -50,10 +48,12 @@ class Weather
     }
 
     /**
-     * 返回实时天气
+     * 返回实时天气.
+     *
      * @param $city
-     * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException|GuzzleException
      */
@@ -63,10 +63,12 @@ class Weather
     }
 
     /**
-     * 返回近几天的天气预报
+     * 返回近几天的天气预报.
+     *
      * @param $city
-     * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException|GuzzleException
      */
@@ -76,11 +78,12 @@ class Weather
     }
 
     /**
-     * 获取天气主接口
+     * 获取天气主接口.
+     *
      * @param $city
-     * @param string $type
-     * @param string $format
+     *
      * @return mixed|string
+     *
      * @throws HttpException
      * @throws InvalidArgumentException
      * @throws GuzzleException
@@ -89,18 +92,18 @@ class Weather
     {
         $url = 'https://restapi.amap.com/v3/weather/weatherInfo';
         if (!\in_array(\strtolower($format), ['xml', 'json'])) {
-            throw new InvalidArgumentException('Invalid response format: ' . $format);
+            throw new InvalidArgumentException('Invalid response format: '.$format);
         }
         if (!\in_array(\strtolower($type), ['base', 'all'])) {
-            throw new InvalidArgumentException('Invalid type value(base/all): ' . $type);
+            throw new InvalidArgumentException('Invalid type value(base/all): '.$type);
         }
         $format = \strtolower($format);
         $type = \strtolower($type);
         //封装 query 参数，并对空值进行过滤。
         $query = array_filter([
-            'key'        => $this->key,
-            'city'       => $city,
-            'output'     => $format,
+            'key' => $this->key,
+            'city' => $city,
+            'output' => $format,
             'extensions' => $type,
         ]);
         try {
