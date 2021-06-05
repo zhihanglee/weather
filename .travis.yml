@@ -4,12 +4,10 @@ php:  # 需要测试的版本
     - 7.2
     - 7.3
     - 7.4
-    - 8.0.2
-
 dist: trusty   # 系统版本
 sudo: false  # 是否使用 sudo 模式
-
 os: linux # 操作环境
+
 # 执行前需要运行的命令
 install: travis_retry composer install --no-interaction --prefer-source
 #
