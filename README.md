@@ -1,7 +1,7 @@
 ---
 
 # Weather
-<p align="center">:rainbow:基于 [高德开放平台](https://lbs.amap.com/dev/id/newuser) 的 PHP 天气信息组件。</p>
+基于 [高德开放平台](https://lbs.amap.com/dev/id/newuser) 的 PHP 天气信息组件
 
 [![Build Status](https://travis-ci.org/zhihanglee/weather.svg?branch=master)](https://travis-ci.org/zhihanglee/weather)
 ![StyleCI build status](https://github.styleci.io/repos/324499079/shield)
@@ -13,16 +13,16 @@ php >=7.2.5
 $ composer require leo0315/weather -vvv
 ```
 
-## 配置
+## 前提
 
-在使用本扩展之前，你需要去 [高德开放平台](https://lbs.amap.com/dev/id/newuser) 注册账号，然后创建应用，获取应用的 API Key。
+在[高德开放平台](https://lbs.amap.com/dev/id/newuser) 注册账号，然后创建应用，获取应用的 API Key。
 
 ## 使用
 
 ```php
 use Leo0315\Weather\Weather;
 
-$key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
+$key = '获取的key';
 
 $weather = new Weather($key);
 ```
@@ -32,7 +32,7 @@ $weather = new Weather($key);
 ```php
 $response = $weather->getLiveWeather('深圳');
 ```
-示例：
+返回：
 
 ```
 {
